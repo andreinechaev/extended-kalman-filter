@@ -7,6 +7,15 @@ add_definitions(-std=c++11)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
+include(cmake/FindEigen3.cmake)
+
+message(STATUS "Trying to include Eigen library")
+set(EIGEN3_ROOT src/Eigen)
+set(CMAKE_MODULE_PATH src/cmake)
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIR})
+message(STATUS "EIGEN: " ${EIGEN3_VERSION} " (internal)")
+
 set(sources src/main.cpp src/tools.cpp src/FusionEKF.cpp src/kalman_filter.cpp src/tools.h src/FusionEKF.h src/kalman_filter.h)
 
 
@@ -19,7 +28,6 @@ link_directories(/usr/local/opt/openssl/lib)
 link_directories(/usr/local/Cellar/libuv/1.11.0/lib)
 
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") 
-
 
 add_executable(ExtendedKF ${sources})
 

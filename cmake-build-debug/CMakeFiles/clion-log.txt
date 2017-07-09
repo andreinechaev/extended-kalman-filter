@@ -1,6 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/anechaev/Developer/SDC/CarND-Extended-Kalman-Filter-Project
--- Trying to include Eigen library
--- EIGEN: 3.3.4 (internal)
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/anechaev/Developer/SDC/CarND-Extended-Kalman-Filter-Project/cmake-build-debug

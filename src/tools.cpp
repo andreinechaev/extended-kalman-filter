@@ -58,13 +58,12 @@ MatrixXd Tools::CalculateJacobian(const VectorXd &x_state) {
     float vx = x_state(2);
     float vy = x_state(3);
 
-    //TODO: YOUR CODE HERE
-
-    //check division by zero
-    if (px == 0 || py == 0 || vx == 0 || vy == 0) return Hj;
-
     //compute the Jacobian matrix
     float sqsum = px * px + py * py;
+
+    //check division by zero
+    if (sqsum == 0)
+        return Hj;
 
     float drhopx = px / sqrt(sqsum);
     float drhopy = py / sqrt(sqsum);

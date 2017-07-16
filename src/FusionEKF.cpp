@@ -118,9 +118,9 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     dt /= 1000000.0; // convert micros to s
     previous_timestamp_ = measurement_pack.timestamp_;
 
-    float dt_2 = dt * dt;
-    float dt_3 = dt_2 * dt;
-    float dt_4 = dt_3 * dt;
+    const float dt_2 = dt * dt;
+    const float dt_3 = dt_2 * dt;
+    const float dt_4 = dt_3 * dt;
 
     // State transition matrix update
     ekf_.F_ << 1, 0, dt, 0,
